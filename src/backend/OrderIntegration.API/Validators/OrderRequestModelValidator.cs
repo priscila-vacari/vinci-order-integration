@@ -4,12 +4,12 @@ using OrderIntegration.API.Models;
 namespace OrderIntegration.API.Validators
 {
     /// <summary>
-    /// Classe de validação de lançamento
+    /// Classe de validação de pedido
     /// </summary>
     public class OrderRequestModelValidator : AbstractValidator<OrderRequestModel>
     {
         /// <summary>
-        /// Validador de lançamento
+        /// Validador de pedido
         /// </summary>
         public OrderRequestModelValidator()
         {

@@ -1,10 +1,13 @@
 ﻿using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using OrderIntegration.Domain.Entities;
+using OrderIntegration.InfraEstructure.Interfaces;
+using System.Diagnostics.CodeAnalysis;
 
 namespace OrderIntegration.InfraEstructure.Repositories
 {
-    public class OrderCacheRepository
+    [ExcludeFromCodeCoverage]
+    public class OrderCacheRepository: IOrderCacheRepository
     {
         private readonly IMongoCollection<Order> _collection;
 

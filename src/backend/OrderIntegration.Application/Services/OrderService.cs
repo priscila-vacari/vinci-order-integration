@@ -4,18 +4,17 @@ using OrderIntegration.Application.Interfaces;
 using OrderIntegration.Domain.Entities;
 using OrderIntegration.Domain.Exceptions;
 using Microsoft.Extensions.Logging;
-using OrderIntegration.InfraEstructure.Repositories;
 using OrderIntegration.InfraEstructure.Interfaces;
 
 namespace OrderIntegration.Application.Services
 {
-    public class OrderService(ILogger<OrderService> logger, IMapper mapper, IRepository<Order> repository, KafkaProducer producer, OrderCacheRepository cache) : IOrderService
+    public class OrderService(ILogger<OrderService> logger, IMapper mapper, IRepository<Order> repository, IKafkaProducer producer, IOrderCacheRepository cache) : IOrderService
     {
         private readonly ILogger<OrderService> _logger = logger;
         private readonly IMapper _mapper = mapper;
         private readonly IRepository<Order> _repository = repository;
-        private readonly KafkaProducer _producer = producer;
-        private readonly OrderCacheRepository _cache = cache;
+        private readonly IKafkaProducer _producer = producer;
+        private readonly IOrderCacheRepository _cache = cache;
 
         public async Task SendToQueueAsync(OrderDTO orderDto)
         {

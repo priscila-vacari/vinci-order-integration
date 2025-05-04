@@ -7,6 +7,7 @@ using System.Linq.Expressions;
 
 namespace OrderIntegration.InfraEstructure.Repositories
 {
+    [ExcludeFromCodeCoverage]
     public class Repository<T>(AppDbContext context, ILogger<Repository<T>> logger) : IRepository<T> where T : class
     {
         private readonly AppDbContext _context = context;

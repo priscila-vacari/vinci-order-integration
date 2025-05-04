@@ -282,12 +282,12 @@
         </member>
         <member name="T:OrderIntegration.API.Validators.OrderRequestModelValidator">
             <summary>
-            Classe de validação de lançamento
+            Classe de validação de pedido
             </summary>
         </member>
         <member name="M:OrderIntegration.API.Validators.OrderRequestModelValidator.#ctor">
             <summary>
-            Validador de lançamento
+            Validador de pedido
             </summary>
         </member>
         <member name="T:OrderIntegration.Application.ConfigJsonDependencyRegister">

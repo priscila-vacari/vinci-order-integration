@@ -4,7 +4,6 @@ using OrderIntegration.API.Models;
 using OrderIntegration.Application.DTOs;
 using OrderIntegration.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using OrderIntegration.Domain.Entities;
 
 namespace OrderIntegration.API.Controllers.v1
 {

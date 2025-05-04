@@ -37,7 +37,7 @@ namespace OrderIntegration.Worker
                 {
                     #region Services DI
                     services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-                    ServiceDependencyRegister.RegisterServices(services);
+                    ServiceDependencyRegister.RegisterServices(services, hostContext.Configuration);
                     ApplicationDependencyRegister.RegisterServices(services);
                     InfraDependencyRegister.RegisterServices(services, hostContext.Configuration);
                     #endregion

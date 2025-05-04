@@ -35,8 +35,8 @@ namespace OrderIntegration.InfraEstructure
 
         private static IServiceCollection AddDependencyServices(this IServiceCollection services)
         {
-            services.AddSingleton<KafkaProducer>();
-            services.AddSingleton<OrderCacheRepository>();
+            services.AddSingleton<IKafkaProducer, KafkaProducer>();
+            services.AddSingleton<IOrderCacheRepository, OrderCacheRepository>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
             return services;

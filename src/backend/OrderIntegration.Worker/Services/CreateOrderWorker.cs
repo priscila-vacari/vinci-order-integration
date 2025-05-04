@@ -10,25 +10,15 @@ namespace OrderIntegration.Worker.Services
     {
         private readonly ILogger<CreateOrderWorker> _logger;
         private readonly IOrderService _orderService;
-        private readonly IConfiguration _configuration;
         private readonly string _topic;
         private readonly IConsumer<Ignore, string> _consumer;
 
-        public CreateOrderWorker(ILogger<CreateOrderWorker> logger, IConfiguration configuration, IOrderService orderService)
+        public CreateOrderWorker(ILogger<CreateOrderWorker> logger, IConfiguration configuration, IOrderService orderService, IConsumer<Ignore, string> consumer)
         {
             _logger = logger;
-            _configuration = configuration;
             _orderService = orderService;
+            _consumer = consumer;
             _topic = configuration["Kafka:Topic"] ?? "orders-topic";
-
-            var config = new ConsumerConfig
-            {
-                BootstrapServers = configuration["Kafka:BootstrapServers"],
-                GroupId = "order-consumer-group",
-                AutoOffsetReset = AutoOffsetReset.Earliest
-            };
-
-            _consumer = new ConsumerBuilder<Ignore, string>(config).Build();
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
