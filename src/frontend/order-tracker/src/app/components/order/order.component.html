@@ -1,0 +1,22 @@
+<h2>Cadastro de Pedido</h2>
+<form (submit)="createOrder(); $event.preventDefault()">
+  <input type="number" [(ngModel)]="order.id" name="id" required />
+  <input placeholder="Cliente" [(ngModel)]="order.cliente" name="cliente" required />
+  <input type="number" placeholder="Valor" [(ngModel)]="order.valor" name="valor" required />
+  <input type="date" [(ngModel)]="order.dataPedido" name="dataPedido" required />
+  <button type="submit">Enviar Pedido</button>
+</form>
+
+<hr />
+<br>
+
+<h2>Consultar Pedido</h2>
+<form (submit)="fetchOrder(); $event.preventDefault()">
+  <input [(ngModel)]="orderId" name="orderId" placeholder="ID do pedido" required />
+  <button type="submit">Buscar</button>
+</form>
+
+<div *ngIf="retrievedOrder">
+  <h3>Pedido Encontrado:</h3>
+  <pre>{{ retrievedOrder | json }}</pre>
+</div>
