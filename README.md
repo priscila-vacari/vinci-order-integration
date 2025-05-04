@@ -20,7 +20,7 @@ vinci-order-integration/
 ## 🔧 Passos para subir a aplicação
 1. Clone o repositório:
 ```
-git clone https://github.com/seu-usuario/vinci-order-integration.git
+git clone https://github.com/priscila-vacari/vinci-order-integration.git
 cd vinci-order-integration
 ```
 
